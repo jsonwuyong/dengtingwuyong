@@ -1,5 +1,6 @@
 package com.dengting.guide;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.ViewGroup;
@@ -46,9 +47,11 @@ public class SplashGuideActivity extends FragmentActivity {
             layoutParams.rightMargin = 20;//设置点点点view的右边距
             viewGroup.addView(imageView,layoutParams);
 
-
         }
+        //获取自定义viewpager 然后设置背景图片
+        vPager = (GuideViewPager) findViewById(R.id.viewpager_launcher);
+        vPager.setBackGroud(BitmapFactory.decodeResource(getResources(),R.mipmap.bg_kaka_launcher));
 
-
+        MemoryWuHanLaunchFragment hanLaunchFragment = new MemoryWuHanLaunchFragment();
     }
 }
