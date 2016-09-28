@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.ViewGroup;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -53,5 +54,53 @@ public class SplashGuideActivity extends FragmentActivity {
         vPager.setBackGroud(BitmapFactory.decodeResource(getResources(),R.mipmap.bg_kaka_launcher));
 
         MemoryWuHanLaunchFragment hanLaunchFragment = new MemoryWuHanLaunchFragment();
+        MemoryShangHaiLaunchFragment haiLaunchFragment = new MemoryShangHaiLaunchFragment();
+        StereoscopicLauncherFragment launcherFragment = new StereoscopicLauncherFragment();
+
+        list.add(hanLaunchFragment);
+        list.add(haiLaunchFragment);
+        list.add(launcherFragment);
+
+        adapter = new BaseFragmentAdapter(getSupportFragmentManager(),list);
+        vPager.setAdapter(adapter);
+        vPager.setOffscreenPageLimit(2);
+        vPager.setCurrentItem(0);
+        vPager.setOnPageChangeListener(changeListener);
+
+    }
+
+    /**
+     * 监听viewpager的移动
+     */
+    OnPageChangeListener changeListener=new OnPageChangeListener() {
+        @Override
+        public void onPageSelected(int index) {
+            setImageBackground(index);//改变点点点的切换效果
+            LauncherBaseFragment fragment=list.get(index);
+
+            list.get(currentSelect).stopAnimation();//停止前一个页面的动画
+            fragment.startAnimation();//开启当前页面的动画
+
+            currentSelect=index;
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {}
+        @Override
+        public void onPageScrollStateChanged(int arg0) {}
+    };
+
+    /**
+     * 改变点点点的切换效果
+     * @param selectItems
+     */
+    private void setImageBackground(int selectItems) {
+        for (int i = 0; i < tips.length; i++) {
+            if (i == selectItems) {
+                tips[i].setBackgroundResource(R.mipmap.page_indicator_focused);
+            } else {
+                tips[i].setBackgroundResource(R.mipmap.page_indicator_unfocused);
+            }
+        }
     }
 }

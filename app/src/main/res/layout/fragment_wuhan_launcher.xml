@@ -58,9 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/tv_shooting_video_money"
-        android:text="把钱给老婆,她开心啦就有赏"
+        android:text="把钱给老婆,她开心就有赏"
         android:textColor="#FFFFFFFF"
-        android:textSize="35dp" />
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/tv_shooting_video_money"
