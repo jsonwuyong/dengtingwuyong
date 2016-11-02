@@ -17,8 +17,8 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:textSize="20sp"
+        android:layout_gravity="center"
         android:text="@string/regist"
         android:textColor="@android:color/white"/>
 
@@ -32,6 +32,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 </dym.unique.com.springinglayoutlibrary.viewgroup.SpringingFrameLayout>
+
     <dym.unique.com.springinglayoutlibrary.viewgroup.SpringingLinearLayout
         android:id="@+id/sll_mainContainer"
         android:layout_width="match_parent"
