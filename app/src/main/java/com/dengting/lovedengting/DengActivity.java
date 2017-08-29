@@ -66,11 +66,12 @@ public class DengActivity extends AppCompatActivity implements ILoginView{
 
     }
 
+    /**
+     * 调用登录方法进行登陆
+     */
     @OnClick(R.id.btn_login)
     public void onClick() {
-        /**
-         * 调用登录方法进行登陆
-         */
+        
         loginPresenter.login();
     }
 
