@@ -24,4 +24,18 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.0'
     compile files('libs/SpringingLayout.jar')
+    compile 'com.jakewharton:butterknife:8.0.1'
+    //添加retrofit2 的依赖 添加这个依赖就默认添加了okhttp依赖
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    //支持Gson 及 rxjava
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    //okhttp log 工具
+    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    //gson
+    compile 'com.google.code.gson:gson:2.5'
+    //rxjava
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.3'
 }
